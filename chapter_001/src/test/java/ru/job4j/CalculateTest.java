@@ -26,11 +26,21 @@ public class CalculateTest {
                 out.toString(),
                 is(
                         String.format(
-                                "Hello world.",
+                                "Hello world.\r\n",
                                 System.getProperty("line.separator")
                         )
                 )
         );
 	}
 	
+	/**
+	* Test echo.
+	*/ @Test
+	public void whenTakeNameThenTreeEchoPlusName() {
+		String input = "Alexandr Korsyuk";
+		String expect = "Echo, echo, echo : Alexandr Korsyuk"; 
+		Calculate calc = new Calculate();
+		String result = calc.echo(input);
+		assertThat(result, is(expect));
+	}
 }
