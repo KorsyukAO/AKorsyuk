@@ -4,16 +4,16 @@ package ru.job4j;
  *@autor Alexandr Korsyuk (Korsyuk@gmail.com)
  *@since 13.01.2018
  *@version 0.2
-*/
+ */
 public class Calculate {
 	/**
-	*Конструктор, вывод строки в консоль.
-	*@param args - args
-	*/
+	 *Конструктор, вывод строки в консоль.
+	 *@param args - args
+	 */
 	public static void main(String[] args) {
-		System.out.println ("Hello world.");
+		System.out.println("Hello world.");
 	}
-	
+
 	/**
 	 * Method echo.
 	 * @param name Your name.
