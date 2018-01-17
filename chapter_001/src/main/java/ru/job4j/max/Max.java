@@ -9,4 +9,8 @@ public class Max {
     public int max(int ferst, int secomd) {
         return ferst > secomd ? ferst : secomd;
     }
+
+    public int max(int ferst, int second, int third) {
+        return max(max(ferst, second), third);
+    }
 }
