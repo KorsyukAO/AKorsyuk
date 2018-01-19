@@ -8,7 +8,7 @@ import static org.junit.Assert.assertThat;
  *Test
  *
  *@autor Alexandr Korsyuk (Korsyuk@gmail.com)
- *@since 17.01.2018
+ *@since 18.01.2018
  *@version 0.1
  */
 public class CounterTest {

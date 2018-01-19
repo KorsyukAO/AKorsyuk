@@ -5,12 +5,13 @@ import java.lang.annotation.Target;
  * class Point решение задачи: 3.3. Вычисление площади треугольника.
  * @autor Alexandr Korsyuk (Korsyuk@gmail.com)
  * @since 17.01.2018
- * @version 0.1
+ * @version 0.2
  */
 public class Triangle {
     private Point a;
     private Point b;
     private Point c;
+
 
     public Triangle(Point a, Point b, Point c) {
         this.a = a;
@@ -40,15 +41,15 @@ public class Triangle {
      * @return Вернуть прощадь, если треугольник существует или -1, если треугольника нет.
      */
     public double area() {
-        double rsl = -1;
+        double rs1 = -1;
         double ab = this.a.distanceTo(this.b);
         double ac = this.a.distanceTo(this.c);
         double bc = this.b.distanceTo(this.c);
         double p = this.period(ab, ac, bc);
         if (this.exist(ab, ac, bc)) {
-            return Math.sqrt(p * (p - ab) * (p - ac) * (p - bc));
+            rs1 = Math.sqrt(p * (p - ab) * (p - ac) * (p - bc));
         }
-        return rsl;
+        return rs1;
     }
 
     /**
