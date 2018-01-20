@@ -1,49 +1,31 @@
 package ru.job4j.loop;
+
+import java.util.function.BiPredicate;
+
 /**
- *Class Paint решение задачи 4.4. Построить пирамиду в псевдографике.
+ *Class Paint решение задачи 4.5. Рефакторинг кода.
  *@autor Alexandr Korsyuk (Korsyuk@gmail.com).
  *@since 20.01.2018
- *@version 0.1
+ *@version 0.2
  */
 public class Paint {
     public String rightTrl(int height) {
-        StringBuilder screen = new StringBuilder();
-        int weight = height;
-        for (int row = 0; row != height; row++) {
-            for (int column = 0; column != weight; column++) {
-                if (row >= column) {
-                    screen.append("^");
-                } else {
-                    screen.append(" ");
-                }
-            }
-            screen.append(System.lineSeparator());
-        }
-        return screen.toString();
+    return this.loopBy(height, height, (row, column) -> row >= column);
     }
 
     public String leftTrl(int height) {
-        StringBuilder screen = new StringBuilder();
-        int weight = height;
-        for (int row = 0; row != height; row++) {
-            for (int column = 0; column != weight; column++) {
-                if (row >= weight - column - 1) {
-                    screen.append("^");
-                } else {
-                    screen.append(" ");
-                }
-            }
-            screen.append(System.lineSeparator());
-        }
-        return screen.toString();
+        return this.loopBy(height, height, (row, column) -> row >= height - column - 1);
     }
 
     public String pyramid(int height) {
+        return this.loopBy(height, 2 * height - 1, (row, column) -> row >= height - column - 1 && row + height - 1 >= column);
+    }
+
+    private String loopBy(int height, int weight, BiPredicate<Integer, Integer> predicat) {
         StringBuilder screen = new StringBuilder();
-        int weight = 2 * height - 1;
-        for (int row = 0; row != height; row++) {
-            for (int column = 0; column != weight; column++) {
-                if (row >= height - column - 1 && row + height - 1 >= column) {
+        for (int row = 0; row < height; row++) {
+            for (int column = 0; column < weight; column++) {
+                if (predicat.test(row, column)) {
                     screen.append("^");
                 } else {
                     screen.append(" ");
