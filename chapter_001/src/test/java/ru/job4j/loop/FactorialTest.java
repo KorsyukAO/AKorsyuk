@@ -8,8 +8,8 @@ import static org.junit.Assert.assertThat;
  *Test
  *
  *@autor Alexandr Korsyuk (Korsyuk@gmail.com)
- *@since 18.01.2018
- *@version 0.1
+ *@since 20.01.2018
+ *@version 0.2
  */
 
 public class FactorialTest {
