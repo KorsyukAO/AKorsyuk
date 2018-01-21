@@ -1,7 +1,8 @@
-package ru.job4j.arrey;
+package ru.job4j.array;
 
 import org.junit.Test;
-import static org.junit.Assert.assertArrayEquals;
+
+import static org.junit.Assert.*;
 /**
  *Test
  *
@@ -10,12 +11,13 @@ import static org.junit.Assert.assertArrayEquals;
  *@version 0.1
  */
 public class SquareTest {
+
     /**
      *Test сравниваем результат рботы методв с эталонным для bound = 5.
      *
      */
     @Test
-    public void testArreyValueOfFive() {
+    public void testArrayValueOfFive() {
         Square square = new Square();
         int[] rst = square.calculate(5);
         int[] expArray = {0, 1, 4, 9, 16};

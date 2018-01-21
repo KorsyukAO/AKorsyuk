@@ -1,4 +1,4 @@
-package ru.job4j.arrey;
+package ru.job4j.array;
 /**
  *Class Square решение задачи 5.0. Заполнить массив степенями чисел.
  *@autor Alexandr Korsyuk (Korsyuk@gmail.com)
