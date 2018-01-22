@@ -12,15 +12,8 @@ public class Turn {
      * @return - развернутый массив.
      */
     public int[] back(int[] array) {
-        int size;
 
-        if (array.length % 2 == 0) {
-            size = array.length / 2;
-        } else {
-            size = (array.length - 1) / 2;
-        }
-
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < array.length / 2 ; i++) {
             int x = array[i];
             array[i] = array[array.length - (1 + i)];
             array[array.length - (1 + i)] = x;
