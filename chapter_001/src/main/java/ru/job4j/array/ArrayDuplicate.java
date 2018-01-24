@@ -7,7 +7,7 @@ public class ArrayDuplicate {
         int unique = array.length;
         for (int out = 0; out < unique; out++) {
             for (int in = out + 1; in < unique; in++) {
-                if(array[out].equals(array[in])) {
+                if (array[out].equals(array[in])) {
                     array[in] = array[unique - 1];
                     in--;
                     unique--;

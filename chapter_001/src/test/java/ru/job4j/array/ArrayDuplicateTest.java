@@ -10,7 +10,7 @@ public class ArrayDuplicateTest {
         String[] arrayDuplicates = {"Привет", "Мир", "Привет", "Супер", "Мир"};
         String[] arrayResult = array.remove(arrayDuplicates);
         String[] arrayExp = {"Привет", "Мир", "Супер"};
-        assertThat(arrayResult,arrayContainingInAnyOrder(arrayExp));
+        assertThat(arrayResult, arrayContainingInAnyOrder(arrayExp));
     }
 }
 
