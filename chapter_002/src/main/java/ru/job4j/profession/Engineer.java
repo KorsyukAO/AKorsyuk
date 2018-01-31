@@ -5,6 +5,6 @@ public class Engineer extends Profession {
         super(name, age, birthData, diploma);
     }
     public String constructModel(Profession that) {
-        return "Инженер " + getName() + " сконструировал для " + that.getName() + "а модель по чертежу.";
+        return String.format("Инженер %s сконструировал для %sа модель по чертежу.", getName(), that.getName());
     }
 }

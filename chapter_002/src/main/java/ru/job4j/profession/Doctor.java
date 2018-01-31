@@ -6,6 +6,6 @@ public class Doctor extends Profession {
     }
 
     public String diagnoseHeal(Profession that) {
-       return "Доктор " + getName() + " лечит " + that.getName() + "а.";
+       return String.format("Доктор %s лечит %sа.", getName(), that.getName());
     }
 }

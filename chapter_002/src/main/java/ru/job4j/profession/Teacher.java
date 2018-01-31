@@ -5,6 +5,6 @@ public class Teacher extends Profession {
         super(name, age, birthData, diploma);
     }
     public String teachStudents(Profession that) {
-        return "Учитель " + getName() + " учит " + that.getName() + "а.";
+        return String.format("Учитель %s учит %sа.", getName(), that.getName());
     }
 }
