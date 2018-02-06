@@ -1,4 +1,9 @@
-package ru.job4j.traker;
+package ru.job4j.tracker.start;
+
+import ru.job4j.tracker.ConsoleInput;
+import ru.job4j.tracker.Input;
+import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Tracker;
 
 public class StartUI {
 
