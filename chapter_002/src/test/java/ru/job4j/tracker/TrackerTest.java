@@ -56,8 +56,8 @@ public class TrackerTest {
      */
     @Test
     public void whenDelete() {
-        Item[] expected = {this.item0, this.item1, this.item2, this.item3, this.item4, this.item5};
-        tracker.delete(item6.getId());
+        Item[] expected = {this.item0, this.item1, this.item2, this.item3, this.item4, this.item6};
+        tracker.delete(item5.getId());
         assertArrayEquals(expected, tracker.getAll());
     }
     /**

@@ -49,8 +49,9 @@ public class Tracker {
     public void delete(String id) {
         for (int index = 0; index < position; index++) {
             if (id.equals(items[index].getId())) {
-                this.items[index] = this.items[position];
-                position--;
+                System.arraycopy(items, index + 1, items, index, this.position - index - 1);
+                this.position--;
+
             }
         }
     }
@@ -110,4 +111,5 @@ public class Tracker {
     public Item getItemByIndex(int index) {
         return items[index];
     }
+
 }
