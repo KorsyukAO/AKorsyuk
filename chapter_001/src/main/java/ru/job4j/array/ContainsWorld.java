@@ -20,7 +20,7 @@ public class ContainsWorld {
         for (int i = 0; i < originChar.length; i++) {
             if (originChar[i] == subChar[0]) {
                 for (int j = 0; j < subChar.length; j++) {
-                    if (originChar[i+j] == subChar[j]) {
+                    if (originChar[i + j] == subChar[j]) {
                         result = true;
                     } else {
                         result = false;
