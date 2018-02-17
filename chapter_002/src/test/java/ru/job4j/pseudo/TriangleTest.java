@@ -17,10 +17,10 @@ public class TriangleTest {
         Triangle triangle = new Triangle();
         assertThat(triangle.draw(), is(
                 new StringBuilder()
-                        .append('\n').append("   +   ")
-                        .append('\n').append("  +++   ")
-                        .append('\n').append(" +++++  ")
-                        .append('\n').append("+++++++")
+                        .append(System.lineSeparator()).append("   +   ")
+                        .append(System.lineSeparator()).append("  +++   ")
+                        .append(System.lineSeparator()).append(" +++++  ")
+                        .append(System.lineSeparator()).append("+++++++")
                         .toString()
                 )
         );
