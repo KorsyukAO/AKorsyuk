@@ -24,16 +24,20 @@ public class PaintTest {
     // буфер для результата.
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
+    @Before
     public void loadOutput() {
+        System.out.println("execute before method");
         System.setOut(new PrintStream(this.out));
     }
+
+    @After
     public void backOutput() {
         System.setOut(this.stdout);
+        System.out.println("execute after method");
     }
 
     @Test
     public void whenDrawSquare() {
-        this.loadOutput();
         new Paint().draw(new Square());
         // проверяем результат вычисления
         assertThat(
@@ -48,12 +52,10 @@ public class PaintTest {
                                 .toString()
                 )
         );
-        this.backOutput();
     }
 
     @Test
     public void whenDrawTriangle() {
-        this.loadOutput();
         new Paint().draw(new Triangle());
         // проверяем результат вычисления
         assertThat(
@@ -69,7 +71,6 @@ public class PaintTest {
                 )
         );
         // возвращаем обратно стандартный вывод в консоль.
-        this.backOutput();
     }
 
 }
