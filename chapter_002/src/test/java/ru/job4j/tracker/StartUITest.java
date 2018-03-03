@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 import ru.job4j.tracker.start.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,7 +33,7 @@ public class StartUITest {
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         //создаём StubInput с последовательностью действий
-        Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});
+        Input input = new StubInput(new String[]{"0", "test name", "desc", "нет", "6", "да"});
         //   создаём StartUI и вызываем метод init()
         new StartUI(input, tracker).init();
         // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
@@ -49,7 +48,7 @@ public class StartUITest {
         //Напрямую добавляем заявку
         Item item = tracker.add(new Item());
         //создаём StubInput с последовательностью действий
-        Input input = new StubInput(new String[]{"1", "2", item.getId(), "test name", "desc", "1", "6"});
+        Input input = new StubInput(new String[]{"1", "нет", "2", item.getId(), "test name", "desc", "нет", "1", "нет", "6", "да"});
         // создаём StartUI и вызываем метод init()
         new StartUI(input, tracker).init();
         // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
@@ -64,7 +63,7 @@ public class StartUITest {
         Item item1 = tracker.add(new Item("name1", "name1"));
         Item item2 = tracker.add(new Item("name2", "name2"));
         Item[] result = {item1, item2};
-        Input input = new StubInput(new String[]{"1", "3", item.getId(), "1", "6"});
+        Input input = new StubInput(new String[]{"1", "нет", "3", item.getId(), "нет", "1", "нет", "6", "да"});
         new StartUI(input, tracker).init();
         assertThat(tracker.getAll(), is(result));
     }
@@ -76,7 +75,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("name", "name"));
         Item item1 = tracker.add(new Item("name1", "name1"));
         Item item2 = tracker.add(new Item("name2", "name2"));
-        Input input = new StubInput(new String[]{"1", "6"});
+        Input input = new StubInput(new String[]{"1", "нет", "6", "да"});
         new StartUI(input, tracker).init();
         assertThat(
                 new String(out.toByteArray()),

@@ -34,9 +34,10 @@ public class Tracker {
     //редактирование заявок
     public void replace(String id, Item item) {
         for (int index = 0; index < position; index++) {
-            if (id.equals(items[index].getId())) {
+            if (item != null && id.equals(items[index].getId())) {
                 this.items[index] = item;
                 item.setId(id);
+                break;
             }
         }
     }
