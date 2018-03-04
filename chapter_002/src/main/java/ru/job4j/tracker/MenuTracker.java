@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 /**
- *Class MenuTracker решение задачи 1.002.5.1. Реализовать события на внутренних классах. [#787]
+ *Class MenuTracker решение задачи 1.002.5.1. Реализовать события на внутренних классах. [#787].
  *@autor Alexandr Korsyuk (Korsyuk@gmail.com)
  *@since 03.03.2018
  *@version 0.1
@@ -11,6 +11,15 @@ public class MenuTracker {
     private Input input;
     private Tracker tracker;
     private UserAction[] actions = new UserAction[7];
+
+    public int[] getAllKeyActionMenu() {
+        int[] allKeyActionMenu = new int[actions.length];
+        for (int indexMenu = 0; indexMenu < actions.length; indexMenu++) {
+            allKeyActionMenu[indexMenu] = actions[indexMenu].key();
+        }
+        return allKeyActionMenu;
+    }
+
 
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
@@ -30,6 +39,7 @@ public class MenuTracker {
     public void select(int key) {
         this.actions[key].execute(this.input, this.tracker);
     }
+
 
     public void show() {
         for (UserAction action : this.actions) {
