@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
 
 /**
+ * Реализация меню.
+ *
  *Class MenuTracker решение задачи 1.002.5.1. Реализовать события на внутренних классах. [#787].
  *@autor Alexandr Korsyuk (Korsyuk@gmail.com)
  *@since 03.03.2018

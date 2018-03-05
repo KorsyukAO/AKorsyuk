@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+/**
+ * класс с параметрами заявки.
+ */
 public class Item {
     private String id;   //позиция в массиве.
     private String name;

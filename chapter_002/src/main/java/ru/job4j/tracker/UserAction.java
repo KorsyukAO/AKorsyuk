@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+/**
+ * интерфейс меню.
+ */
 public interface UserAction {
     // интерфейс который принимает значения действия пользователя.
     int key();
