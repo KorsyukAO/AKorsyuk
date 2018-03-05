@@ -37,8 +37,4 @@ public class ValidateInputTest {
                 )
         );
     }
-    @Test
-    public void whenTest(){
-
-    }
 }
