@@ -14,6 +14,7 @@ public class MenuTracker {
     private Tracker tracker;
     private UserAction[] actions = new UserAction[7];
 
+
     public int[] getAllKeyActionMenu() {
         int[] allKeyActionMenu = new int[actions.length];
         for (int indexMenu = 0; indexMenu < actions.length; indexMenu++) {
@@ -29,13 +30,13 @@ public class MenuTracker {
     }
 
     public void fillAction() {
-        this.actions[0] = this.new AddNewItem();
-        this.actions[1] = new MenuTracker.ShowAllItem();
-        this.actions[2] = new EditItems();
-        this.actions[3] = new DeleteItems();
-        this.actions[4] = new FindItemById();
-        this.actions[5] = new MenuTracker.FindItemByName();
-        this.actions[6] = new Exit();
+        this.actions[0] = this.new AddNewItem(0, "Создание новой заявки.");
+        this.actions[1] = new MenuTracker.ShowAllItem(1, "Вывод всех заявок на экран.");
+        this.actions[2] = new EditItems(2, "Редоктирование заявки.");
+        this.actions[3] = new DeleteItems(3, "Удаление заявки.");
+        this.actions[4] = new FindItemById(4, "Поиск заявки по ID.");
+        this.actions[5] = new MenuTracker.FindItemByName(5, "Поиск заявки по имени.");
+        this.actions[6] = new Exit(6, "Выход из программы.");
     }
 
     public void select(int key) {
@@ -50,12 +51,14 @@ public class MenuTracker {
             }
         }
     }
+
     //0. Создание новой заявки.
-    private class AddNewItem implements UserAction {
-        public int key() {
-            return 0;
+    private class AddNewItem extends BaseAction {
+        private AddNewItem(int key, String name) {
+            super(key, name);
         }
 
+        @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("------------ Добавление новой заявки --------------");
             String name = input.ask("Введите имя заявки :");
@@ -64,18 +67,16 @@ public class MenuTracker {
             tracker.add(item);
             System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
         }
-
-        public String info() {
-            return String.format("%s. %s", this.key(), "Создание новой заявки.");
-        }
     }
 
     //4. Поиск заявки по ID.
-    private class FindItemById implements UserAction {
-        public int key() {
-            return 4;
+    private class FindItemById extends BaseAction {
+
+        private FindItemById(int key, String name) {
+            super(key, name);
         }
 
+        @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("------------ Поиск заявки по ID --------------");
             String id = input.ask("Введите ID заявки:");
@@ -83,18 +84,16 @@ public class MenuTracker {
             System.out.printf("Заявка: ID: %-15s Имя: %-20s Описание: %-20s%n", item.getId(), item.getName(), item.getDesc());
             System.out.println("------------ Поиск заявки по ID -----------");
         }
-
-        public String info() {
-            return String.format("%s. %s", this.key(), "Поиск заявки по ID.");
-        }
     }
 
+
     //1. Вывод всех заявок на экран.
-    private static class ShowAllItem implements UserAction {
-        public int key() {
-            return 1;
+    private static class ShowAllItem extends BaseAction {
+        private ShowAllItem(int key, String name) {
+            super(key, name);
         }
 
+        @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("------------ Вывод всех заявок --------------");
             for (Item item : tracker.getAll()) {
@@ -104,17 +103,16 @@ public class MenuTracker {
 
         }
 
-        public String info() {
-            return String.format("%s. %s", this.key(), "Вывод всех заявок на экран.");
-        }
     }
 
+
     //5. Поиск заявки по имени.
-    private static class FindItemByName implements UserAction {
-        public int key() {
-            return 5;
+    private static class FindItemByName extends BaseAction {
+        private FindItemByName(int key, String name) {
+            super(key, name);
         }
 
+        @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("------------ Поиск заявки по имени --------------");
             String name = input.ask("Введите имя заявки:");
@@ -123,18 +121,13 @@ public class MenuTracker {
             }
             System.out.println("------------ Поиск заявки по имени -----------");
         }
-
-        public String info() {
-            return String.format("%s. %s", this.key(), "Поиск заявки по имени.");
-        }
     }
 }
 //2. Редоктирование заявки.
-class EditItems implements UserAction {
-    public int key() {
-        return 2;
+class EditItems extends BaseAction {
+    EditItems(int key, String name) {
+        super(key, name);
     }
-
     public void execute(Input input, Tracker tracker) {
         String id = input.ask("Введите ID редактируемой заявки :");
         String name = input.ask("Введите имя заявки :");
@@ -142,45 +135,27 @@ class EditItems implements UserAction {
         Item item = new Item(name, desc);
         tracker.replace(id, item);
     }
-
-    public String info() {
-        return String.format("%s. %s", this.key(), "Редоктирование заявки.");
-    }
-
 }
 
 //3. Удаление заявки.
-class DeleteItems implements UserAction {
-    public int key() {
-        return 3;
+class DeleteItems extends BaseAction {
+    DeleteItems(int key, String name) {
+        super(key, name);
     }
-
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Удаление заявки по ID --------------");
         String id = input.ask("Введите ID заявки:");
         tracker.delete(id);
         System.out.println("------------ Заявка удалена -----------");
     }
-
-    public String info() {
-        return String.format("%s. %s", this.key(), "Удаление заявки.");
-    }
-
 }
 
 //6. Выход из программы.
-class Exit implements UserAction {
-    public int key() {
-        return 6;
+class Exit extends BaseAction {
+    Exit(int key, String name) {
+        super(key, name);
     }
-
     public void execute(Input input, Tracker tracker) {
-
     }
-
-    public String info() {
-        return String.format("%s. %s", this.key(), "Выход из программы.");
-    }
-
 }
 
